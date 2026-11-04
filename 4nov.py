@@ -29,16 +29,32 @@ class FighterPlane(Plane):
         print("Plane is shooting bullets")
 #takeOff(), land(),  --->inherited method  fly()---> Overridden and shoot() ---> specialized here(for class fighterplane)
 
+# c = CargoPlane()
+# f= FighterPlane()
+# p = PassengerPlane()
+# c.takeOff()
+# c.fly()
+# c.land()
+# p.takeOff()
+# p.fly()
+# p.land()
+# f.takeOff()
+# f.fly()
+# f.land()
+# f.shoot() (Isn't this too long and repetitive?)
+'''
+We have a solution tho
+and that's polymorphism!!
+'''
+def allowPlane(ref):
+    ref.takeOff()
+    ref.fly()
+    ref.land()
+    if isinstance(ref, FighterPlane):
+        ref.shoot()
 c = CargoPlane()
 f= FighterPlane()
 p = PassengerPlane()
-c.takeOff()
-c.fly()
-c.land()
-p.takeOff()
-p.fly()
-p.land()
-f.takeOff()
-f.fly()
-f.land()
-f.shoot()
+allowPlane(c)
+allowPlane(p)
+allowPlane(f)
